@@ -17,7 +17,7 @@ module.exports = function (grunt) {
       ' Licensed MIT */\n',
     // Task configuration.
     clean: {
-      files: ['dist', 'test/coverage', 'test/report']
+      files: ['dist', 'spec/coverage', 'spec/report']
     },
     concat: {
       options: {
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['scripts/**/*.js'],
+        src: ['lib/**/*.js'],
         dest: 'dist/jquery.<%= pkg.name %>.js'
       }
     },
@@ -47,10 +47,10 @@ module.exports = function (grunt) {
         src: 'Gruntfile.js'
       },
       scripts: {
-        src: ['scripts/**/*.js']
+        src: ['lib/**/*.js']
       },
       test: {
-        src: ['test/**/*-test.js']
+        src: ['spec/**/*Spec.js']
       }
     },
     connect: {
@@ -82,12 +82,9 @@ module.exports = function (grunt) {
       html: {
         files: ['index.html']
       },
-      styles: {
-        files: ['styles/**/*.css']
-      },
       karma: {
-        files: ['scripts/**/*.js', 'test/**/*-test.js'],
-        tasks: ['karma:unit:run']
+        files: ['lib/**/*.js', 'spec/**/*Spec.js', 'spec/fixtures/*.html'],
+        tasks: ['jshint', 'karma:unit:run']
       }
     }
   });

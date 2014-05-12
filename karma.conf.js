@@ -18,20 +18,20 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       // include dependencies
-      'bower_components/jquery/jquery.js',
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
 
       // include our JavaScript files
-      'scripts/example.js',
+      'lib/*.js',
 
       // simple patterns to load the needed testfiles
       // equals to {pattern: 'test/*-test.js', watched: true, served: true, included: true}
-      'test/*-test.js',
+      'spec/*Spec.js',
 
       // fixtures should be served by the webserver but not included on
       // the page with <script> tags
       {
-        pattern: 'test/fixtures/example.html',
+        pattern: 'spec/fixtures/*.html',
         included: false,
         served: true
       }
@@ -63,7 +63,7 @@ module.exports = function (config) {
     // this will output reports in the test/report dir which can be opened
     // and viewed in your browser
     htmlReporter: {
-      outputDir: 'test/report',
+      outputDir: 'spec/report',
       templatePath: './node_modules/karma-html-reporter/jasmine_template.html'
     },
 
@@ -71,7 +71,7 @@ module.exports = function (config) {
     // this will output coverage reports in the test/coverage dir using Istanbul
     coverageReporter: {
       type: 'html',
-      dir: 'test/coverage/'
+      dir: 'spec/coverage/'
     },
 
     // web server port

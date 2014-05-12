@@ -1,0 +1,11 @@
+{
+  "name": "disable-plugin",
+  "version": "0.0.1",
+  "description": "Disable/Enable",
+  "dependencies": {
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {
+    "jasmine-jquery": "~1.5.93"
+  }
+}
